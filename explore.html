@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUCIOUS FEAST</title>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Prata&display=swap" rel="stylesheet">
+    
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; 
+    }
+
+    .header{
+        min-height: 80vh; 
+        width: 100%;
+        background-image: linear-gradient(rgba(168, 170, 180, 0.671), rgba(168, 170, 180, 0.671)),url("Untitled design (2).png");
+        background-position: center;
+        background-size: cover;
+        position: relative; 
+    }
+
+    /* --- NAVIGATION --- */
+    nav{
+        display: flex;
+        padding: 10px 6%;
+        align-items: center;
+        justify-content: space-between; 
+        position: relative; 
+        border-bottom: 1px solid rgba(78, 1, 1, 0.2);
+    }
+
+    nav img{
+        width: 130px;
+        z-index: 10; 
+        position: relative;
+    }
+
+    .nav-links{
+        position: absolute; 
+        left: 50%;
+        transform: translateX(-50%); 
+        text-align: center;
+        width: auto;
+    }
+
+    .nav-links ul li{
+        list-style: none;
+        display: inline-block;
+        padding: 20px 18px;
+        position: relative;
+    }
+
+    .nav-links ul li a{
+        color: #4e0101;
+        text-decoration: none;
+        font-family: "Cookie", cursive;
+        font-size: 26px; 
+    }
+
+    .nav-links ul li::after{
+        content: '';
+        width: 0px;
+        height: 2px;
+        background: #965454;
+        display: block;
+        margin: auto;
+        transition: 0.5s;
+    }
+
+    .nav-links ul li:hover::after{
+        width: 100%; 
+    }
+
+    /* --- SEARCH BOX STYLES --- */
+    .search-box {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.5); 
+        padding: 8px 15px;
+        border-radius: 30px;
+        border: 1px solid #965454;
+        z-index: 10; 
+    }
+
+    .search-box input {
+        background: transparent;
+        border: none;
+        outline: none;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 18px;
+        color: #4e0101;
+        width: 150px;
+        font-weight: 600;
+    }
+
+    .search-box input::placeholder {
+        color: #4e0101;
+        opacity: 0.7;
+    }
+
+    .search-btn {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        margin-left: 5px;
+        color: #4e0101;
+    }
+
+    /* --- RECIPES SECTION --- */
+    .recipes{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        padding-top: 60px; 
+    }
+
+    h1{
+        text-align: center;
+        font-family: "Prata", serif;
+        font-weight: 400;
+        font-size: 42px; 
+        margin-bottom: 10px;
+        color: #1a1a1a;
+    }
+
+    p{
+        color: #474646;
+        text-align: center;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 10px;
+    }
+
+    /* --- CARD GRID --- */
+    .row {
+        display: flex;
+        margin-top: 40px;
+        justify-content: space-between; 
+        flex-wrap: wrap; 
+    }
+
+    .col{
+        flex-basis: 31%; 
+        background: rgba(255, 255, 255, 0.4); 
+        border-radius: 5px;
+        margin-bottom: 30px;
+        padding: 30px 20px;
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; 
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+    h3{
+        text-align: center;
+        font-weight: 600;
+        margin: 15px 0;
+        font-size: 24px;
+        font-family: "Prata", serif;
+    }
+    
+    .col:hover{
+        background-color: #f0f0f0;
+        transform: translateY(-5px); 
+    }
+
+    .col a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    /* Message when no results are found */
+    #no-results {
+        display: none; /* Hidden by default */
+        font-family: "Prata", serif;
+        font-size: 22px;
+        color: #965454;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+</style>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="project.html"><img style="margin-left: -45px;" src="E:\PROJECTS\LuciousFeast\logoo.png" ></a>
+            
+            <div class="nav-links">
+                <ul>
+                    <li><a href="project.html">Home</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">Cuisine</a></li>
+                    <li><a href="">Follow Us</a></li>    
+                </ul>            
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search dishes..." onkeyup="filterCuisines()">
+                <button class="search-btn" onclick="filterCuisines()">🔍</button>
+            </div>
+        </nav>
+        
+        <section class="recipes">
+        <h1>CUISINE YOU CAN TRY</h1>
+        <p class="head">We are here to help you with making wonderful dishes under the cuisine we offer you!<br>You will definitely love it!!!</p>
+        
+        <p id="no-results">No cuisine found with that dish. Try "Pizza", "Sushi", or "Tacos".</p>
+
+        <div class="row">
+            
+            <div class="col" data-tags="croissant, macarons, coq au vin, beef bourguignon, escargot, baguette, cheese, onion soup, quiche, salad">
+                <a href="french-cuisine.html">
+                    <h3>French</h3>
+                    <p>French cuisine is a celebration of elegance and flavor. From buttery croissants to delicate macarons, each bite reflects a rich culinary tradition. Indulge in classics like coq au vin or savor the simplicity of a baguette with cheese.</p>
+                </a>
+            </div>
+            
+            <div class="col" data-tags="butter chicken, naan, biryani, tandoori chicken, dosa, sambar, idli, masala chai, vada, curry">
+                <a href="indian-cuisine.html">
+                    <h3>Indian</h3>
+                    <p>Explore the vibrant flavors of Indian cuisine! From aromatic spices to savory street food, each bite tells a story of cultural diversity. Indulge in North Indian classics like tandoori chicken or savor South Indian delights.</p>
+                </a>
+            </div>
+            
+            <div class="col" data-tags="pizza, pasta, spaghetti carbonara, lasagna, risotto, gelato, mozzarella, basil">
+                <a href="italian-cuisine.html">
+                    <h3>Italian</h3>
+                    <p>Experience the essence of Italian cuisine: simplicity, freshness, and passion. From classic pasta dishes like spaghetti carbonara to wood-fired pizzas, every bite is a celebration of flavor.</p>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="row">
+            
+            <div class="col" data-tags="sushi, sashimi, tempura, ramen, miso soup, tofu, rice">
+                <a href="japanese-cuisine.html">
+                    <h3>Japanese</h3>
+                    <p>Japanese cuisine, a harmony of flavors and presentation. Sushi, sashimi, and tempura showcase the art of fresh seafood and delicate frying techniques. Experience the umami-rich flavors of miso soup.</p>
+                </a>
+            </div>
+            
+            <div class="col" data-tags="kimchi, bbq, bulgogi, galbi, bibimbap, spicy">
+                <a href="korean-cuisine.html">
+                    <h3>Korean</h3>
+                    <p>Experience the bold and savory flavors of Korean cuisine! From sizzling BBQ dishes like bulgogi and galbi to the iconic spicy-sweet kick of kimchi, every bite is a journey through tradition.</p>
+                </a>
+            </div>
+            
+            <div class="col" data-tags="tacos, salsa, guacamole, enchiladas, mole, spicy, burritos, nachos">
+                <a href="mexican-cuisine.html">
+                    <h3>Mexican</h3>
+                    <p>Dive into the vibrant and spicy world of Mexican cuisine! Indulge in hearty tacos, zesty salsa, and creamy guacamole, or savor the comforting flavors of traditional dishes.</p>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="row">
+            
+            <div class="col" data-tags="pad thai, curry, massaman, green curry, som tum, spicy, soup">
+                <a href="thai-cuisine.html">
+                    <h3>Thai</h3>
+                    <p>Embark on a culinary adventure with the exotic flavors of Thai cuisine! From the aromatic curries of Massaman to the tangy delights of Pad Thai, Thai food tantalizes with its balance of flavors.</p>
+                </a>
+            </div>
+            
+            <div class="col" data-tags="moussaka, souvlaki, salad, olive oil, feta, gyro">
+                <a href="greek-cuisine.html">
+                    <h3>Greek</h3>
+                    <p>Greek cuisine is fresh and wholesome, featuring olive oil, herbs, vegetables, and grilled meats, with iconic dishes like moussaka, souvlaki, and Greek salads.</p>
+                </a>
+            </div>
+            
+            <div class="col" data-tags="paella, tapas, churros, tortilla, gazpacho, cured meats, olive oil">
+                <a href="spanish-cuisine.html">
+                    <h3>Spanish</h3>
+                    <p>Spanish cuisine is vibrant and diverse, known for its bold flavors and regional specialties. From tapas and paella to rich olive oils and cured meats.</p>
+                </a>
+            </div>
+
+        </div>
+        
+        </section>
+    </section>
+
+    <script>
+        function filterCuisines() {
+            let input = document.getElementById('searchInput').value.toLowerCase().trim();
+            let cards = document.getElementsByClassName('col');
+            let noResultsMsg = document.getElementById('no-results');
+            let visibleCount = 0;
+
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                let desc = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+                let tags = cards[i].getAttribute('data-tags'); 
+
+                // Search in Title, Description, AND Tags
+                if (title.includes(input) || desc.includes(input) || (tags && tags.includes(input))) {
+                    cards[i].style.display = ""; 
+                    visibleCount++;
+                } else {
+                    cards[i].style.display = "none"; 
+                }
+            }
+
+            // Show "No Results" message if everything is hidden
+            if (visibleCount === 0 && input.length > 0) {
+                noResultsMsg.style.display = "block";
+            } else {
+                noResultsMsg.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

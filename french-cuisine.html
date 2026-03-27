@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Cuisine</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Prata&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #f9f9f9;
+        }
+
+        /* --- Header Styles --- */
+        .header {
+            min-height: 40vh;
+            width: 100%;
+            /* Kept your local path */
+            background-image: linear-gradient(rgba(168, 170, 180, 0.671), rgba(168, 170, 180, 0.671)), url("E:\\sem II\\project\\LuciousFeast\\public\\Untitled design (2).png");
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-family: "Prata", serif;
+            font-size: 50px;
+            color: #4e0101;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 40px;
+            border-radius: 5px;
+            z-index: 2;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between; /* Spreads logo and links */
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4e0101;
+            font-family: "Cookie", cursive;
+            font-size: 28px;
+            /* Added a small background so links are readable over the hero image */
+            background: rgba(255, 255, 255, 0.4); 
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        /* --- The Main Grid System --- */
+        .fren-dish {
+            padding: 50px 10%;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: "Prata", serif;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        /* The Container for all cards */
+        .row {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 30px; 
+        }
+
+        /* The Individual Card */
+        .col {
+            flex-basis: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .col:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+
+        .col img {
+            width: 100%;
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .col h3 {
+            font-family: "Prata", serif;
+            font-size: 22px;
+            color: #4e0101;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        /* --- Footer & Button Styles --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #333;
+            margin-top: 50px;
+        }
+
+        /* The Button Look */
+        footer a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 12px 35px;
+            font-size: 18px;
+            font-family: "Prata", serif;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            background-color: #fff;
+            color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+    </style>
+</head>
+<body>
+
+    <section class="header">
+        <nav>
+            <a href="project.html">Home</a>
+        </nav>
+        <h1>French Cuisine</h1>
+    </section>
+
+    <main>
+        <section class="fren-dish">
+            <h2>Our Top Dishes</h2>
+            
+            <div class="row">
+                
+                <div class="col">
+                    <img src="E:\PROJECTS\LuciousFeast\public\french\Chicken Cassoulet.jpeg" alt="Chicken Cassoulet">
+                    <h3>Chicken Cassoulet</h3>
+                </div>
+
+                <div class="col">
+                    <img src="E:\PROJECTS\LuciousFeast\public\french\Classic Quiche Lorraine Recipe.jpeg" alt="Quiche Lorraine">
+                    <h3>Quiche Lorraine</h3>
+                </div>
+
+                <div class="col">
+                    <img src="E:\PROJECTS\LuciousFeast\public\french\Cook it _ La meilleure boite repas.jpeg" alt="Gourmet Meal Box">
+                    <h3>Gourmet Meal Box</h3>
+                </div>
+
+                <div class="col">
+                    <img src="E:\PROJECTS\LuciousFeast\public\french\Escargots in Parsley-Garlic Butter Sauce.jpeg" alt="Escargots">
+                    <h3>Escargots</h3>
+                </div>
+
+                <div class="col">
+                    <img src="E:\PROJECTS\LuciousFeast\public\french\French Onion Soup - Cooking Classy.jpeg" alt="French Onion Soup">
+                    <h3>French Onion Soup</h3>
+                </div>
+
+                <div class="col">
+                    <img src="E:\PROJECTS\LuciousFeast\public\french\The Best French Salads to Recreate at Home.jpeg" alt="Classic French Salad">
+                    <h3>Classic French Salad</h3>
+                </div>
+
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <a href="explore.html">Back to Cuisines</a> 
+    </footer>
+
+</body>
+</html>
